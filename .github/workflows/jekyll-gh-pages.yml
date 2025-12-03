@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maxonic — Preview</title>
+  <style>
+    :root{
+      --bg:#fff6ec; /* warm light */
+      --surface:#ffffff;
+      --muted:#6b6b75;
+      --accent:#B57EDC;
+      --accent-dark:#8f5fc0;
+      --text:#222222;
+      --white:#ffffff;
+      --radius:12px;
+      --container-width:1100px;
+      --gap:1rem;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg) 0%, #fff6ec 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .container{max-width:var(--container-width); margin:0 auto; padding:2rem;}
+    .site-header{position:sticky; top:0; background:transparent; padding:0.5rem 0; z-index:20}
+    .header-inner{display:flex; align-items:center; justify-content:space-between}
+    .brand{font-weight:800; color:var(--accent-dark); text-decoration:none; font-size:1.2rem}
+    .site-nav ul{margin:0;padding:0;list-style:none;display:flex;gap:1rem}
+    .site-nav a{color:var(--muted); text-decoration:none}
+    .hero{padding:4rem 0; text-align:center}
+    .lead{color:var(--muted); max-width:70ch; margin:0 auto 1rem}
+    .btn{background:var(--accent); color:var(--white); border:0; padding:0.6rem 0.9rem; border-radius:8px; cursor:pointer}
+    .section{padding:2rem 0}
+    h2{margin-top:0}
+    .collection{margin-bottom:2rem}
+    /* carousel */
+    .carousel{position:relative; background:var(--surface); border-radius:var(--radius); padding:1rem; box-shadow:0 8px 30px rgba(12,10,22,0.06); overflow:visible}
+    .carousel-track{display:flex; gap:1rem; align-items:center; overflow:hidden; transition:transform .45s ease}
+    .slide{min-width:100%; height:360px; background-size:cover; background-position:center; border-radius:10px; flex-shrink:0}
+    .carousel-btn{position:absolute; top:50%; transform:translateY(-50%); background:var(--white); border:0; width:44px; height:44px; border-radius:50%; box-shadow:0 6px 18px rgba(12,10,22,0.08); cursor:pointer; color:var(--accent-dark)}
+    .carousel-btn.prev{left:12px}
+    .carousel-btn.next{right:12px}
+    .carousel-thumbs{display:flex; gap:0.5rem; justify-content:center; margin-top:0.75rem; flex-wrap:wrap}
+    .carousel-thumbs button{border:2px solid transparent; padding:0; background:transparent; border-radius:6px; cursor:pointer; display:inline-block; line-height:0}
+    .carousel-thumbs img{width:72px; height:48px; object-fit:cover; display:block; border-radius:6px; box-shadow:0 4px 12px rgba(12,10,22,0.06); opacity:0.95; transition:transform .18s ease, box-shadow .18s ease}
+    .carousel-thumbs button.active{border-color:var(--accent); box-shadow:0 6px 20px rgba(145,90,190,0.15)}
+    .carousel-thumbs button.active img{transform:scale(1.03)}
+    /* contact */
+    .contact-form label{display:block;margin-bottom:0.75rem;color:var(--muted)}
+    .contact-form input, .contact-form textarea{width:100%; padding:0.65rem; border-radius:8px; border:1px solid rgba(17,24,39,0.06); background:transparent; color:var(--text); margin-top:0.5rem}
+    .form-actions{display:flex; gap:0.5rem; margin-top:0.75rem}
+    .form-note{color:var(--muted); margin-top:0.5rem}
+    .site-footer{padding:2rem 0; text-align:center; color:var(--muted)}
+    @media (max-width:900px){
+      .carousel-track{transition:none}
+      .slide{height:220px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Maxonic</a>
+      <nav class="site-nav" id="siteNav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <h1>Maxonic — FT Collection</h1>
+        <p class="lead">A curated presentation of the FT Maxonic collection. This is an offline preview — open locally to see images.</p>
+        <p><a class="btn" href="#collections">View Collections</a></p>
+      </div>
+    </section>
+
+    <section id="collections" class="section collections">
+      <div class="container">
+        <h2>Collections</h2>
+
+        <!-- FT Maxonic collection -->
+        <div class="collection">
+          <h3>FT Collection — Maxonic</h3>
+          <div class="carousel" data-carousel>
+            <button class="carousel-btn prev" aria-label="Previous slide">&larr;</button>
+            <div class="carousel-track">
+              <!-- Replace / add images in assets/ to see them here -->
+              <div class="slide" style="background-image:url('assets/Kolobok.jpg');" role="img" aria-label="Kolobok"></div>
+              <div class="slide" style="background-image:url('assets/ft-maxonic-2.jpg');" role="img" aria-label="Maxonic 2"></div>
+              <div class="slide" style="background-image:url('assets/ft-maxonic-3.jpg');" role="img" aria-label="Maxonic 3"></div>
+              <div class="slide" style="background-image:url('assets/ft-maxonic-4.jpg');" role="img" aria-label="Maxonic 4"></div>
+            </div>
+            <button class="carousel-btn next" aria-label="Next slide">&rarr;</button>
+            <div class="carousel-thumbs" aria-hidden="false"></div>
+          </div>
+        </div>
+
+        <!-- Other (example) -->
+        <div class="collection">
+          <h3>Other Collection</h3>
+          <div class="carousel" data-carousel>
+            <button class="carousel-btn prev" aria-label="Previous slide">&larr;</button>
+            <div class="carousel-track">
+              <div class="slide" style="background-image:url('assets/other-1.jpg');" role="img" aria-label="Other 1"></div>
+              <div class="slide" style="background-image:url('assets/other-2.jpg');" role="img" aria-label="Other 2"></div>
+            </div>
+            <button class="carousel-btn next" aria-label="Next slide">&rarr;</button>
+            <div class="carousel-thumbs" aria-hidden="false"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>If you'd like to work together, email me at <a href="mailto:you@example.com">you@example.com</a>.</p>
+        <p>OpenSea: <a href="https://opensea.io/0xabbe908258a3cf588f31097deec55eac1718323e" target="_blank" rel="noopener noreferrer">0xabbe908258a3cf588f31097deec55eac1718323e</a></p>
+
+        <form id="contactForm" class="contact-form" action="#" novalidate>
+          <label>
+            Name
+            <input type="text" name="name" id="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" id="email" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" id="message" rows="4" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn">Send</button>
+          </div>
+          <p class="form-note" id="formNote" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Maxonic. Warm theme preview.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Quick carousel + nav + form script for preview
+    document.addEventListener('DOMContentLoaded', function () {
+      // nav (mobile not required for preview)
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // contact form fallback to mailto
+      const form = document.getElementById('contactForm');
+      const formNote = document.getElementById('formNote');
+      form && form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        if (!name || !email || !message) {
+          formNote.textContent = 'Please fill in all fields.';
+          return;
+        }
+        const subject = encodeURIComponent(`New message from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+        window.location.href = `mailto:you@example.com?subject=${subject}&body=${body}`;
+      });
+
+      // carousel initialization (thumbnails generated automatically)
+      const AUTOPLAY_INTERVAL_MS = 3000;
+      const SLIDE_TRANSITION_MS = 400;
+      document.querySelectorAll('[data-carousel]').forEach(initCarousel);
+
+      function initCarousel(root) {
+        const track = root.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const prevBtn = root.querySelector('.carousel-btn.prev');
+        const nextBtn = root.querySelector('.carousel-btn.next');
+        const thumbsContainer = root.querySelector('.carousel-thumbs');
+
+        // set transition duration
+        track.style.transition = `transform ${SLIDE_TRANSITION_MS}ms ease`;
+
+        // build thumbnails
+        slides.forEach((slide, idx) => {
+          const bg = getBackgroundImageUrl(slide) || 'data:image/svg+xml;utf8,' + encodeURIComponent(fallbackSvg(idx+1));
+          const btn = document.createElement('button');
+          btn.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
+          const img = document.createElement('img');
+          img.src = bg;
+          img.alt = slide.getAttribute('aria-label') || `Slide ${idx + 1}`;
+          btn.appendChild(img);
+          btn.addEventListener('click', () => goToSlide(idx));
+          thumbsContainer.appendChild(btn);
+        });
+        const thumbs = Array.from(thumbsContainer.children);
+
+        let current = 0;
+        let autoplayTimer = null;
+
+        function update() {
+          const offset = current * track.clientWidth;
+          track.style.transform = `translateX(-${offset}px)`;
+          thumbs.forEach((t, i) => t.classList.toggle('active', i === current));
+        }
+
+        function goToSlide(index) {
+          current = Math.max(0, Math.min(index, slides.length - 1));
+          update();
+          resetAutoplay();
+        }
+        function next() { goToSlide((current + 1) % slides.length); }
+        function prev() { goToSlide((current - 1 + slides.length) % slides.length); }
+
+        window.addEventListener('resize', update);
+        nextBtn && nextBtn.addEventListener('click', next);
+        prevBtn && prevBtn.addEventListener('click', prev);
+
+        root.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next(); });
+        root.setAttribute('tabindex', '0');
+
+        function startAutoplay() {
+          stopAutoplay();
+          if (AUTOPLAY_INTERVAL_MS > 0) autoplayTimer = setInterval(next, AUTOPLAY_INTERVAL_MS);
+        }
+        function stopAutoplay() { if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
+        function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+        root.addEventListener('mouseenter', stopAutoplay);
+        root.addEventListener('mouseleave', startAutoplay);
+
+        update();
+        startAutoplay();
+      }
+
+      // extract inline background-image url
+      function getBackgroundImageUrl(el) {
+        const cs = window.getComputedStyle(el);
+        const bg = cs.backgroundImage || cs.getPropertyValue('background-image');
+        const m = bg.match(/url\((['"]?)(.*?)\1\)/);
+        return m ? m[2] : '';
+      }
+
+      // fallback svg as data URL for missing images
+      function fallbackSvg(index) {
+        return `<svg xmlns='http://www.w3.org/2000/svg' width='400' height='240'><rect width='100%' height='100%' fill='#f3f4f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='28' fill='#9ca3af'>Slide ${index} <\/text><\/svg>`;
+      }
+    });
+  </script>
+</body>
+</html>
